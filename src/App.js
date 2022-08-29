@@ -9,11 +9,11 @@ import 'antd/dist/antd.css';
 import './App.css';
 import Products from './containers/Products/Products';
 
-const {Sider} = Layout;
+const { Sider } = Layout;
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
-  
+  console.log()
   return (
     <Layout
       style={{
