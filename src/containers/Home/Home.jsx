@@ -38,11 +38,22 @@ function Home() {
       title: 'Name of The Game',
       dataIndex: 'name',
       key: 'name',
+      sorter: (a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : (a.name === b.name ? 0 : -1)),
     },
     {
       title: 'Genre',
       dataIndex: 'genre',
       key: 'genre',
+      sorter: (a, b) => {
+        return a.genre.length - b.genre.length
+      },
+
+      render: (key, item) => {  
+        const result = Array.isArray(item.genre) 
+          ? item.genre.join(', ') 
+          : item.genre;
+        return <div>{result}</div>
+      }
     },
     {
       title: 'Publishers',
