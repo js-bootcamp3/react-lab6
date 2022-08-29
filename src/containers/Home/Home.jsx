@@ -13,7 +13,6 @@ export const BASE_URL = 'https://api.sampleapis.com';
 
 function Home() {
   const [loading, setLoading] = useState(false)
-  const [isModalVisible, setIsModalVisible] = useState(false)
   const [activeItem, setActiveItem] = useState(null);
   const [data, setData] = useState([])
 
@@ -52,7 +51,7 @@ function Home() {
         const result = Array.isArray(item.genre) 
           ? item.genre.join(', ') 
           : item.genre;
-        return <div>{result}</div>
+        return <b key={item.id}>{result}</b>
       }
     },
     {
@@ -71,7 +70,7 @@ function Home() {
     <div className="home-container">
       <h1>Home</h1>
       <Table 
-        dataSource={data} 
+        dataSource={data}
         columns={columns} 
         loading={loading}
         size={'small'}
